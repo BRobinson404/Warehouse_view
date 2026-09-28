@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Warehouse View</title>
+    <title>Warehouse Devices Awaiting Setup</title>
 
     <meta http-equiv="refresh" content="60" />
 
@@ -135,13 +135,7 @@
           const equipmentIndex = header.findIndex(
             (h) => h.trim() === "Installing",
           );
-          const statusesToShow = [
-            "Received",
-            "In Set-up",
-            "Ready for Install",
-            "Install Scheduled",
-            "Partial Received",
-          ];
+          const statusesToShow = ["Received", "In Set-up"];
           let records = [];
           for (let i = 1; i < rows.length; i++) {
             const cols = rows[i].split(",");
