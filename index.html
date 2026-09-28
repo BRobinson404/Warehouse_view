@@ -141,9 +141,19 @@
             const cols = rows[i].split(",");
             if (cols.length < equipmentIndex) continue;
             const status = (cols[statusIndex] || "").trim();
-            if (!statusesToShow.includes(status)) continue;
+            if (
+              status.toLowerCase() !== "received" &&
+              status.toLowerCase() !== "in set-up"
+            ) {
+              continue;
+            }
+            const dateReceived = (cols[dateIndex] || "").trim();
+            // Skip anything without a Date Received
+            if (dateReceived === "") {
+              continue;
+            }
             records.push({
-              dateReceived: cols[dateIndex],
+              dateReceived: dateReceived,
               customer: cols[customerIndex],
               equipment: cols[equipmentIndex],
               status: status,
