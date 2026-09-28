@@ -118,9 +118,23 @@
         return "white";
       }
 
-      fetch("warehouse.json")
-        .then((response) => response.json())
-        .then((data) => {
+      fetch("Machine Updates.csv")
+        .then((response) => response.text())
+        .then((csv) => {
+          const rows = csv.split("\n");
+          const header = rows[0].split(",");
+          const dateIndex = header.findIndex(
+            (h) => h.trim() === "Date Received",
+          );
+          const customerIndex = header.findIndex(
+            (h) => h.trim() === "Customer",
+          );
+          const statusIndex = header.findIndex(
+            (h) => h.trim() === "Machine Status",
+          );
+          const equipmentIndex = header.findIndex(
+            (h) => h.trim() === "Installing",
+          );
           const statusesToShow = [
             "Received",
             "In Set-up",
@@ -128,36 +142,39 @@
             "Install Scheduled",
             "Partial Received",
           ];
-
-          const filtered = data.filter((row) =>
-            statusesToShow.includes(row.status),
-          );
-
-          filtered.sort(
+          let records = [];
+          for (let i = 1; i < rows.length; i++) {
+            const cols = rows[i].split(",");
+            if (cols.length < equipmentIndex) continue;
+            const status = (cols[statusIndex] || "").trim();
+            if (!statusesToShow.includes(status)) continue;
+            records.push({
+              dateReceived: cols[dateIndex],
+              customer: cols[customerIndex],
+              equipment: cols[equipmentIndex],
+              status: status,
+            });
+          }
+          records.sort(
             (a, b) => new Date(a.dateReceived) - new Date(b.dateReceived),
           );
-
           let html = "";
-
-          filtered.forEach((row) => {
+          records.forEach((row) => {
             const age = businessDaysBetween(row.dateReceived);
             const color = getRowColor(age);
-
             html += `
-        <tr class="${color}">
-            <td>${row.dateReceived}</td>
-            <td>${row.customer}</td>
-            <td>${row.equipment}</td>
-            <td class="status">${row.status}</td>
-        </tr>`;
+<tr class="${color}">
+<td>${row.dateReceived}</td>
+<td>${row.customer}</td>
+<td>${row.equipment}</td>
+<td class="status">${row.status}</td>
+</tr>`;
           });
-
           document.getElementById("warehouseTable").innerHTML = html;
         })
         .catch((err) => {
           document.getElementById("warehouseTable").innerHTML =
-            `<tr><td colspan="4">Unable to load warehouse.json</td></tr>`;
-
+            `<tr><td colspan="4">Unable to load Machine Updates.csv</td></tr>`;
           console.error(err);
         });
     </script>
