@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Warehouse View</title>
+
+    <meta http-equiv="refresh" content="60" />
+
+    <style>
+      body {
+        margin: 0;
+        background: #111;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .header {
+        background: #003366;
+        padding: 15px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 24px;
+      }
+
+      th {
+        background: #222;
+        padding: 12px;
+        text-align: left;
+        position: sticky;
+        top: 0;
+      }
+
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #444;
+      }
+
+      .white {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      .yellow {
+        background: #ffd966;
+        color: #000000;
+      }
+
+      .red {
+        background: #ff6b6b;
+        color: #000000;
+      }
+
+      .status {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">Warehouse View</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date Received</th>
+          <th>Customer</th>
+          <th>Equipment</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody id="warehouseTable">
+        <tr>
+          <td colspan="4">Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function businessDaysBetween(startDate) {
+        const start = new Date(startDate);
+        const end = new Date();
+
+        let count = 0;
+
+        let current = new Date(start);
+
+        while (current <= end) {
+          const day = current.getDay();
+
+          if (day !== 0 && day !== 6) {
+            count++;
+          }
+
+          current.setDate(current.getDate() + 1);
+        }
+
+        return count - 1;
+      }
+
+      function getRowColor(days) {
+        if (days >= 11) {
+          return "red";
+        }
+
+        if (days >= 7) {
+          return "yellow";
+        }
+
+        return "white";
+      }
+
+      fetch("Machine Updates.csv")
+        .then((response) => response.text())
+        .then((csv) => {
+          const rows = csv.split("\n");
+          const header = rows[0].split(",");
+          const dateIndex = header.findIndex(
+            (h) => h.trim() === "Date Received",
+          );
+          const customerIndex = header.findIndex(
+            (h) => h.trim() === "Customer",
+          );
+          const statusIndex = header.findIndex(
+            (h) => h.trim() === "Machine Status",
+          );
+          const equipmentIndex = header.findIndex(
+            (h) => h.trim() === "Installing",
+          );
+          const statusesToShow = [
+            "Received",
+            "In Set-up",
+            "Ready for Install",
+            "Install Scheduled",
+            "Partial Received",
+          ];
+          let records = [];
+          for (let i = 1; i < rows.length; i++) {
+            const cols = rows[i].split(",");
+            if (cols.length < equipmentIndex) continue;
+            const status = (cols[statusIndex] || "").trim();
+            if (!statusesToShow.includes(status)) continue;
+            records.push({
+              dateReceived: cols[dateIndex],
+              customer: cols[customerIndex],
+              equipment: cols[equipmentIndex],
+              status: status,
+            });
+          }
+          records.sort(
+            (a, b) => new Date(a.dateReceived) - new Date(b.dateReceived),
+          );
+          let html = "";
+          records.forEach((row) => {
+            const age = businessDaysBetween(row.dateReceived);
+            const color = getRowColor(age);
+            html += `
+<tr class="${color}">
+<td>${row.dateReceived}</td>
+<td>${row.customer}</td>
+<td>${row.equipment}</td>
+<td class="status">${row.status}</td>
+</tr>`;
+          });
+          document.getElementById("warehouseTable").innerHTML = html;
+        })
+        .catch((err) => {
+          document.getElementById("warehouseTable").innerHTML =
+            `<tr><td colspan="4">Unable to load Machine Updates.csv</td></tr>`;
+          console.error(err);
+        });
+    </script>
+  </body>
+</html>
