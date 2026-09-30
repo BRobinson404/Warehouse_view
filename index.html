@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Warehouse Devices Awaiting Setup</title>
-
-    <meta http-equiv="refresh" content="60" />
-
     <style>
       body {
         margin: 0;
@@ -15,7 +11,6 @@
         color: white;
         font-family: Arial, Helvetica, sans-serif;
       }
-
       .header {
         background: #003366;
         padding: 15px;
@@ -23,13 +18,11 @@
         font-size: 32px;
         font-weight: bold;
       }
-
       table {
         width: 100%;
         border-collapse: collapse;
         font-size: 24px;
       }
-
       th {
         background: #222;
         padding: 12px;
@@ -37,36 +30,35 @@
         position: sticky;
         top: 0;
       }
-
       td {
         padding: 10px;
         border-bottom: 1px solid #444;
       }
-
       .white {
         background: #ffffff;
         color: #000000;
       }
-
       .yellow {
         background: #ffd966;
         color: #000000;
       }
-
       .red {
         background: #ff6b6b;
         color: #000000;
       }
-
       .status {
         font-weight: bold;
       }
+      .footer {
+        text-align: center;
+        padding: 10px;
+        color: #888;
+        font-size: 16px;
+      }
     </style>
   </head>
-
   <body>
     <div class="header">Warehouse Devices Awaiting Setup</div>
-
     <table>
       <thead>
         <tr>
@@ -76,111 +68,174 @@
           <th>Status</th>
         </tr>
       </thead>
-
       <tbody id="warehouseTable">
         <tr>
           <td colspan="4">Loading...</td>
         </tr>
       </tbody>
     </table>
+    <div class="footer" id="updated"></div>
 
     <script>
-      function businessDaysBetween(startDate) {
-        const start = new Date(startDate);
+      const DATA_URL = "Machine Updates.csv";
+      const REFRESH_MS = 60000;
+      const STATUSES_TO_SHOW = ["received", "in set-up"];
+
+      // Handles quoted fields ("McNew, King, Landry"), escaped quotes and \r\n line endings
+      function parseCSV(text) {
+        const rows = [];
+        let row = [];
+        let field = "";
+        let inQuotes = false;
+        text = text.replace(/^\uFEFF/, "");
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (inQuotes) {
+            if (c === '"') {
+              if (text[i + 1] === '"') {
+                field += '"';
+                i++;
+              } else {
+                inQuotes = false;
+              }
+            } else {
+              field += c;
+            }
+          } else if (c === '"') {
+            inQuotes = true;
+          } else if (c === ",") {
+            row.push(field);
+            field = "";
+          } else if (c === "\n" || c === "\r") {
+            if (c === "\r" && text[i + 1] === "\n") i++;
+            row.push(field);
+            rows.push(row);
+            row = [];
+            field = "";
+          } else {
+            field += c;
+          }
+        }
+        if (field !== "" || row.length) {
+          row.push(field);
+          rows.push(row);
+        }
+        return rows;
+      }
+
+      // Accepts 2026-09-24, 2026-09-24T00:00:00Z or 09/24/2026.
+      // Returns a local-midnight Date, or null for text like "BACKORDER".
+      function parseDate(value) {
+        const v = (value || "").trim();
+        let m = v.match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (m) return new Date(+m[1], +m[2] - 1, +m[3]);
+        m = v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+        if (m) return new Date(+m[3], +m[1] - 1, +m[2]);
+        return null;
+      }
+
+      function formatDate(d) {
+        return (
+          String(d.getMonth() + 1).padStart(2, "0") + "/" +
+          String(d.getDate()).padStart(2, "0") + "/" +
+          d.getFullYear()
+        );
+      }
+
+      function businessDaysBetween(start) {
         const end = new Date();
-
+        end.setHours(0, 0, 0, 0);
         let count = 0;
-
-        let current = new Date(start);
-
+        const current = new Date(start);
         while (current <= end) {
           const day = current.getDay();
-
-          if (day !== 0 && day !== 6) {
-            count++;
-          }
-
+          if (day !== 0 && day !== 6) count++;
           current.setDate(current.getDate() + 1);
         }
-
         return count - 1;
       }
 
       function getRowColor(days) {
-        if (days >= 11) {
-          return "red";
-        }
-
-        if (days >= 7) {
-          return "yellow";
-        }
-
+        if (days >= 11) return "red";
+        if (days >= 7) return "yellow";
         return "white";
       }
 
-      fetch("Machine Updates.csv")
-        .then((response) => response.text())
-        .then((csv) => {
-          const rows = csv.split("\n");
-          const header = rows[0].split(",");
-          const dateIndex = header.findIndex(
-            (h) => h.trim() === "Date Received",
-          );
-          const customerIndex = header.findIndex(
-            (h) => h.trim() === "Customer",
-          );
-          const statusIndex = header.findIndex(
-            (h) => h.trim() === "Machine Status",
-          );
-          const equipmentIndex = header.findIndex(
-            (h) => h.trim() === "Installing",
-          );
-          const statusesToShow = ["Received", "In Set-up"];
-          let records = [];
-          for (let i = 1; i < rows.length; i++) {
-            const cols = rows[i].split(",");
-            if (cols.length < equipmentIndex) continue;
-            const status = (cols[statusIndex] || "").trim();
-            if (
-              status.toLowerCase() !== "received" &&
-              status.toLowerCase() !== "in set-up"
-            ) {
-              continue;
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function load() {
+        fetch(encodeURI(DATA_URL) + "?t=" + Date.now(), { cache: "no-store" })
+          .then((res) => {
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            return res.text();
+          })
+          .then((csv) => {
+            const rows = parseCSV(csv);
+            const header = rows[0].map((h) => h.trim());
+            const dateIndex = header.indexOf("Date Received");
+            const customerIndex = header.indexOf("Customer");
+            const statusIndex = header.indexOf("Machine Status");
+            const equipmentIndex = header.indexOf("Installing");
+
+            if ([dateIndex, customerIndex, statusIndex, equipmentIndex].includes(-1)) {
+              throw new Error("CSV is missing a required column. Found: " + header.join(" | "));
             }
-            const dateReceived = (cols[dateIndex] || "").trim();
-            // Skip anything without a Date Received
-            if (dateReceived === "") {
-              continue;
+
+            const records = [];
+            for (let i = 1; i < rows.length; i++) {
+              const cols = rows[i];
+              const status = (cols[statusIndex] || "").trim();
+              if (!STATUSES_TO_SHOW.includes(status.toLowerCase())) continue;
+
+              const date = parseDate(cols[dateIndex]);
+              if (!date) continue; // skip blank or text dates
+
+              records.push({
+                date: date,
+                customer: (cols[customerIndex] || "").trim(),
+                equipment: (cols[equipmentIndex] || "").trim(),
+                status: status,
+              });
             }
-            records.push({
-              dateReceived: dateReceived,
-              customer: cols[customerIndex],
-              equipment: cols[equipmentIndex],
-              status: status,
-            });
-          }
-          records.sort(
-            (a, b) => new Date(a.dateReceived) - new Date(b.dateReceived),
-          );
-          let html = "";
-          records.forEach((row) => {
-            const age = businessDaysBetween(row.dateReceived);
-            const color = getRowColor(age);
-            html += `
+
+            records.sort((a, b) => a.date - b.date);
+
+            let html = "";
+            records.forEach((row) => {
+              const color = getRowColor(businessDaysBetween(row.date));
+              html += `
 <tr class="${color}">
-<td>${row.dateReceived}</td>
-<td>${row.customer}</td>
-<td>${row.equipment}</td>
-<td class="status">${row.status}</td>
+<td>${formatDate(row.date)}</td>
+<td>${esc(row.customer)}</td>
+<td>${esc(row.equipment)}</td>
+<td class="status">${esc(row.status)}</td>
 </tr>`;
+            });
+
+            if (records.length === 0) {
+              html = `<tr><td colspan="4">No devices awaiting setup</td></tr>`;
+            }
+
+            document.getElementById("warehouseTable").innerHTML = html;
+            document.getElementById("updated").textContent =
+              "Last updated " +
+              new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+          })
+          .catch((err) => {
+            // Keep the last good table on screen; only report the error in the footer
+            document.getElementById("updated").textContent =
+              "Unable to load Machine Updates.csv (" + err.message + ")";
+            console.error(err);
           });
-          document.getElementById("warehouseTable").innerHTML = html;
-        })
-        .catch((err) => {
-          document.getElementById("warehouseTable").innerHTML =
-            `<tr><td colspan="4">Unable to load Machine Updates.csv</td></tr>`;
-          console.error(err);
-        });
+      }
+
+      load();
+      setInterval(load, REFRESH_MS);
     </script>
   </body>
 </html>
