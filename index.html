@@ -10,50 +10,66 @@
         background: #111;
         color: white;
         font-family: Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
       }
+
       .header {
         background: #003366;
-        padding: 15px;
+        padding: 25px;
         text-align: center;
-        font-size: 32px;
+        font-size: 64px;
         font-weight: bold;
+        letter-spacing: 1px;
       }
+
       table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 24px;
+        font-size: 42px;
       }
+
       th {
         background: #222;
-        padding: 12px;
+        padding: 20px;
         text-align: left;
         position: sticky;
         top: 0;
+        font-size: 44px;
+        font-weight: bold;
       }
+
       td {
-        padding: 10px;
-        border-bottom: 1px solid #444;
+        padding: 20px;
+        border-bottom: 2px solid #444;
+        font-weight: 500;
       }
+
       .white {
         background: #ffffff;
         color: #000000;
       }
+
       .yellow {
         background: #ffd966;
         color: #000000;
       }
+
       .red {
         background: #ff6b6b;
         color: #000000;
       }
+
       .status {
         font-weight: bold;
+        font-size: 46px;
+        text-transform: uppercase;
       }
+
       .footer {
         text-align: center;
-        padding: 10px;
+        padding: 15px;
         color: #888;
-        font-size: 16px;
+        font-size: 24px;
       }
     </style>
   </head>
@@ -136,8 +152,10 @@
 
       function formatDate(d) {
         return (
-          String(d.getMonth() + 1).padStart(2, "0") + "/" +
-          String(d.getDate()).padStart(2, "0") + "/" +
+          String(d.getMonth() + 1).padStart(2, "0") +
+          "/" +
+          String(d.getDate()).padStart(2, "0") +
+          "/" +
           d.getFullYear()
         );
       }
@@ -182,8 +200,15 @@
             const statusIndex = header.indexOf("Machine Status");
             const equipmentIndex = header.indexOf("Installing");
 
-            if ([dateIndex, customerIndex, statusIndex, equipmentIndex].includes(-1)) {
-              throw new Error("CSV is missing a required column. Found: " + header.join(" | "));
+            if (
+              [dateIndex, customerIndex, statusIndex, equipmentIndex].includes(
+                -1,
+              )
+            ) {
+              throw new Error(
+                "CSV is missing a required column. Found: " +
+                  header.join(" | "),
+              );
             }
 
             const records = [];
@@ -224,7 +249,10 @@
             document.getElementById("warehouseTable").innerHTML = html;
             document.getElementById("updated").textContent =
               "Last updated " +
-              new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+              new Date().toLocaleTimeString("en-US", {
+                hour: "numeric",
+                minute: "2-digit",
+              });
           })
           .catch((err) => {
             // Keep the last good table on screen; only report the error in the footer
