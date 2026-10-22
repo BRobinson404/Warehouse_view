@@ -402,14 +402,14 @@ Date Received,Customer,Machine Status,Installing
 9/26/2026,Piney Woods Estates - Jonesboro,Install Completed,USED TAG 22101 - Sharp BPC535WD
 10/1/2026,ITT - GOOD DAY FARMS - Ruston,Install Completed,Sharp MXC428F
 9/28/2026,SNAP - Pleasant Hill High School - Pleasant Hill,Install Completed,Sharp BP71M55
-,ITT - WR Community Service -  Greenville MS,In Set-up,HP X53052dn
+10/22/2026,ITT - WR Community Service -  Greenville MS,In Set-up,HP X53052dn
 9/29/2026,Mad Pelican Equipment,Install Completed,RENTAL - USED TAG 10004 HP E67550dh
 10/1/2026,Sol's Pipe & Steal,Install Completed,USED TAG 21658 - HP E52645dn - JUST THE MACHINE(and toner)
 10/5/2026,DEMO - Louisiana RV,Install Completed,DEMO MACHINE - Epson EM-C800  SN: XCUV003257
 10/6/2026,Temple Baptist Church - Ruston,Install Completed,USED TAG 20870 - BP70C45
 10/6/2026,Robertson Produce - Monroe,Install Completed,USED TAG SEC0035 - HP E50145dn
 10/12/2026,Always Best Care - West Monroe,Install Completed,STOCK Machine w/o tag - BPC545WD - SN: 63014786
-10/19/2026,DOTD Greenwood,Partial Received,(2)BPB550WD
+10/19/2026,SNAP - DOTD Greenwood,Partial Received,(2)BPB550WD
 10/9/2026,Mid South Extrusion - Monroe,Install Completed,USED MACHINE 21562 - HP E52645dn
 10/14/2026,Parker & Company - Monroe,Install Completed,Sharp BP71M45
 10/12/2026,Mercy Medical - Hodge,Install Completed,HP X52952dn
@@ -425,11 +425,14 @@ BACKORDER,Hillview Homes - Bastrop,On Order,Sharp BPC535WD
 10/15/2026,ITT - Good Day Farms - HWY 80 - Monroe,Ready for Install,Sharp MXC428F
 10/19/2026,Eason Manufacturing - West Monroe,Partial Received,Sharp BPC545WD
 10/14/2026,Guardian Health Clinic - Rayville,Ready for Install,(2) HP X52952dn
-,LaSalle Management,On Order,
+,LaSalle Management,Partial Received,
 10/22/2026,Sharp ITT - Aveanna Healthcare Shreveport,In Set-up,MXC358f
 10/19/2026,Heritage Nursing - Haynesville,Ready for Install,Sharp BP71M55
 10/14/2026,Kay's Hideaway Pharmacy - Monroe,Install Completed,Used tag 21007 - HP E52645dn
 10/19/2026,Byrnes Mechanical - West Monroe,Install Scheduled,Sharp BPC545WD
 10/19/2026,Ferriday High School,Ready for Install,Sharp BPB550WD
-10/16/2026,Millbrooke Apartments,Ready for Install,HP E52645dn -  REFURB 10729
-10/16/2026,J&J Bargain Barn,In Set-up,HP E62565h - REFURB LM10-19
+10/16/2026,Millbrooke Apartments - Florien,Ready for Install,HP E52645dn -  REFURB 10729
+10/16/2026,J&J Bargain Barn - Haughton,In Set-up,HP E62565h - REFURB 21297
+,City of Monroe - Monroe,On Order,HP E52952dn
+,Cypress Baptist Church - Shreveport,On Order,"- (3) BP71C36, (2) BP71C45, BP71C65 and (2) BPC131WD"
+,Mid South Extrusion - Monroe,On Order,(4) HP X52952dn
