@@ -394,7 +394,7 @@ Date Received,Customer,Machine Status,Installing
 9/22/2026,Robertson Produce pt 2,Install Completed,HP M404DN - REFURB 10249=
 9/25/2026,Claiborne Memorial Medical,Install Completed,3 Sharp BP71M45 and (2) BPB550WD
 9/28/2026,Ashley County Baptist Assoc,Install Completed,Sharp BPC545WD
-,Origin Bank - ROUND 2,Partial Received,"11 HP X5052, 4 HP X60257, 1 HP X57945, 1 X62757dn"
+,Origin Bank - ROUND 2,Partial Install,"11 HP X5052, 4 HP X60257, 1 HP X57945, 1 X62757dn"
 9/25/2026,Home Federal Bank - Shreveport,Install Completed,Sharp BP550WD
 9/23/2026,Butler Educational Complex - Bossier City,Install Completed,"Sharp BP70C31 - machie is in bossier WH, USED TAG 20910"
 9/29/2026,Somerset Plantation - Newellton,Install Completed,Sharp BP71C31
@@ -416,13 +416,13 @@ Date Received,Customer,Machine Status,Installing
 10/14/2026,Plant Maintenance Services - Crossett,Ready for Install,Sharp BP71C31
 BACKORDER,Briarwood Estates at Ruston,On Order,Sharp BPC535WD
 BACKORDER,Briarwood Estates at Bastrop,On Order,Sharp BPC535WD
-10/14/2026,Wound Ostomy Care - West Monroe,Partial Received,Sharp BPB550WD - DS14 highstand on b/o
+10/14/2026,Wound Ostomy Care - West Monroe,Partial Install,Sharp BPB550WD - DS14 highstand on b/o
 10/14/2026,Richardson Medical/Family Health Clinic- Rayville,Ready for Install,HP X52952dn
 10/13/2026,Viserion Grain - Lake Providence & Crowville,Partial Install,(4) BPC545WD stock machines
 BACKORDER,Hillview Homes - Bastrop,On Order,Sharp BPC535WD
-10/15/2026,Mark J. Neal Law - Monroe,Install Scheduled,Sharo BPC545WD
-10/15/2026,ITT - Good Day Farms - Central Ave - Monroe,Install Scheduled,Sharp MXC428F
-10/15/2026,ITT - Good Day Farms - HWY 80 - Monroe,Ready for Install,Sharp MXC428F
+10/15/2026,Mark J. Neal Law - Monroe,Install Completed,Sharo BPC545WD
+10/15/2026,ITT - Good Day Farms - Central Ave - Monroe,Install Completed,Sharp MXC428F
+10/15/2026,ITT - Good Day Farms - HWY 80 - Monroe,Customer Delay,Sharp MXC428F
 10/19/2026,Eason Manufacturing - West Monroe,Partial Received,Sharp BPC545WD
 10/14/2026,Guardian Health Clinic - Rayville,Ready for Install,(2) HP X52952dn
 ,LaSalle Management,Partial Received,
