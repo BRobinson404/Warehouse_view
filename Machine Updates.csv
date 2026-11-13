@@ -409,14 +409,14 @@ Date Received,Customer,Machine Status,Installing
 10/6/2026,Temple Baptist Church - Ruston,Install Completed,USED TAG 20870 - BP70C45
 10/6/2026,Robertson Produce - Monroe,Install Completed,USED TAG SEC0035 - HP E50145dn
 10/12/2026,Always Best Care - West Monroe,Install Completed,STOCK Machine w/o tag - BPC545WD - SN: 63014786
-11/10/2026,SNAP - DOTD Greenwood,In Set-up,(2)BPB550WD
+11/10/2026,SNAP - DOTD Greenwood,Ready for Install,(2)BPB550WD
 10/9/2026,Mid South Extrusion - Monroe,Install Completed,USED MACHINE 21562 - HP E52645dn
 10/14/2026,Parker & Company - Monroe,Install Completed,Sharp BP71M45
 10/12/2026,Mercy Medical - Hodge,Install Completed,HP X52952dn
 10/14/2026,Plant Maintenance Services - Crossett,Install Completed,Sharp BP71C31
 BACKORDER,Briarwood Estates at Ruston,On Order,Sharp BPC535WD
 BACKORDER,Briarwood Estates at Bastrop,On Order,Sharp BPC535WD
-10/14/2026,Wound Ostomy Care - West Monroe,Partial Install,Sharp BPB550WD - DS14 highstand on b/o
+10/14/2026,Wound Ostomy Care - West Monroe,Install Completed,Sharp BPB550WD - DS14 highstand on b/o
 10/14/2026,Richardson Medical/Family Health Clinic- Rayville,Install Completed,HP X52952dn
 10/13/2026,Viserion Grain - Lake Providence & Crowville,Partial Install,(4) BPC545WD stock machines
 BACKORDER,Hillview Homes - Bastrop,On Order,Sharp BPC535WD
@@ -425,7 +425,7 @@ BACKORDER,Hillview Homes - Bastrop,On Order,Sharp BPC535WD
 10/15/2026,ITT - Good Day Farms - HWY 80 - Monroe,Customer Delay,Sharp MXC428F
 10/19/2026,Eason Manufacturing - West Monroe,Install Completed,Sharp BPC545WD
 10/14/2026,Guardian Health Clinic - Rayville,Install Completed,(2) HP X52952dn
-10/29/2026,LaSalle Management,In Set-up,
+10/29/2026,LaSalle Management,Install Scheduled,
 10/22/2026,Sharp ITT - Aveanna Healthcare Shreveport,Install Completed,MXC358f
 10/19/2026,Heritage Nursing - Haynesville,Install Completed,Sharp BP71M55
 10/14/2026,Kay's Hideaway Pharmacy - Monroe,Install Completed,Used tag 21007 - HP E52645dn
@@ -434,14 +434,14 @@ BACKORDER,Hillview Homes - Bastrop,On Order,Sharp BPC535WD
 10/16/2026,Millbrooke Apartments - Florien,Install Completed,HP E52645dn -  REFURB 10729
 10/16/2026,J&J Bargain Barn - Haughton,Install Completed,HP E62565h - REFURB 21297
 10/23/2026,City of Monroe - Monroe,Partial Install,HP E52952dn
-10/23/2026,Cypress Baptist Church - Shreveport,Partial Received,"(3) BP71C36, (2) BP71C45, BP71C65(B/O) and (2) BPC131WD"
+10/23/2026,Cypress Baptist Church - Shreveport,Customer Delay,"(3) BP71C36, (2) BP71C45, BP71C65(B/O) and (2) BPC131WD"
 10/26/2026,Mid South Extrusion - Monroe,Install Completed,(4) HP X52952dn
 10/30/2026,Young Years Children's Education - Shreveport,Install Completed,Sharp BP51C26
 10/28/2026,Choices Brands - Monroe,Install Completed,HP E4001dn - used tag PB3042
 11/3/2026,Madison James Foster Elementary - Monroe,Install Scheduled,Sharp BP550WD (2) & Riso SF5130
 BACKORDER,Greater North LA Community Devel - Jonesboro,On Order,Sharp BP-C535WD
-10/30/2026,Mid South Extrusion - Monroe,Install Scheduled,HP X55745dn - USED TAG 22076
-10/30/2026,ITT - St. Christina OPCA - Pineville,Install Scheduled,
+10/30/2026,Mid South Extrusion - Monroe,Install Completed,HP X55745dn - USED TAG 22076
+10/30/2026,ITT - St. Christina OPCA - Pineville,Install Completed,
 ,SNAP - LSU Health - Shreveport,On Order,Sharp BP51C36
 ,SNAP - Donnie Bickham Middle School - Shreveport,On Order,(2) Sharp BP71M65
 ,SNAP - CPSB Chief Academic Affairs - Shreveport,On Order,Sharp BP51C31
