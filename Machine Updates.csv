@@ -425,7 +425,7 @@ Date Received,Customer,Machine Status,Installing
 10/15/2026,ITT - Good Day Farms - HWY 80 - Monroe,Customer Delay,Sharp MXC428F
 10/19/2026,Eason Manufacturing - West Monroe,Install Completed,Sharp BPC545WD
 10/14/2026,Guardian Health Clinic - Rayville,Install Completed,(2) HP X52952dn
-10/29/2026,LaSalle Management,Install Scheduled,
+10/29/2026,LaSalle Management,Install Completed,
 10/22/2026,Sharp ITT - Aveanna Healthcare Shreveport,Install Completed,MXC358f
 10/19/2026,Heritage Nursing - Haynesville,Install Completed,Sharp BP71M55
 10/14/2026,Kay's Hideaway Pharmacy - Monroe,Install Completed,Used tag 21007 - HP E52645dn
@@ -448,7 +448,7 @@ Date Received,Customer,Machine Status,Installing
 11/13/2026,SNAP - Rusheon Middle School - Bossier,In Set-up,(2) Sharp BP71M55
 11/13/2026,SNAP - Waller Elementary - Bossier,In Set-up,Sharp BP71M65
 ,Donald Farms - West Monroe,On Order,Sharp BPC545WD
-11/5/2026,Woodcrest Apartments - Haughton,Ready for Install,Sharp MXB467F - USED TAG SH22840
+11/5/2026,Woodcrest Apartments - Haughton,Install Scheduled,Sharp MXB467F - USED TAG SH22840
 11/13/2026,SNAP - LA State Police - Bossier,In Set-up,(2) Sharp BP71C36
 11/11/2026,DeSoto Parish Library - Stonewall,In Set-up,Sharp BP51C45
 11/10/2026,Union Veterinary Clinic - Farmerville,Ready for Install,HP X50352dn
@@ -461,8 +461,8 @@ backorder,Evangel Christian Academy - Shrevport,On Order,"(4)BP70M75, (3)BP71C65
 ,SNAP - LSU Health Peds Ortho - Shreveport,On Order,
 11/9/2026,Creed & Creed - Monroe,Install Scheduled,HP M404dn - used tag 22518
 ,Nexion ITT - Meadowview Health,On Order,"(7)XM3350, (2)M3350, (1)C4342"
-11/13/2026,Orthopedic Center - Monroe,In Set-up,Sharp BP71C45
-11/13/2026,Brown Chrysler Dodge - Minded,In Set-up,HP X50352dn
+11/13/2026,Orthopedic Center - Monroe,Install Scheduled,Sharp BP71C45
+11/13/2026,Brown Chrysler Dodge - Minden,In Set-up,HP X50352dn
 11/12/2026,RENTAL - Burkes Mechanical - Hodge,Ready for Install,Sharp BP70M45 - Used tag SH23357
 BACKORDER,Dunn Bapstist Church -  Delhi,On Order,Sharp BPC535WD
 ,Mechanical Systems - West Monroe,On Order,"Sharp BP71C55, BP71M55"
