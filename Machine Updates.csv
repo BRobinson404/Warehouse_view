@@ -448,7 +448,7 @@ Date Received,Customer,Machine Status,Installing
 11/13/2026,SNAP - Rusheon Middle School - Bossier,In Set-up,(2) Sharp BP71M55
 11/13/2026,SNAP - Waller Elementary - Bossier,In Set-up,Sharp BP71M65
 11/17/2026,Donald Farms - West Monroe,In Set-up,Sharp BPC545WD
-11/5/2026,Woodcrest Apartments - Haughton,Install Scheduled,Sharp MXB467F - USED TAG SH22840
+11/5/2026,North Parke Apartments - Doyline,Install Scheduled,Sharp MXB467F - USED TAG SH22840
 11/13/2026,SNAP - LA State Police - Bossier,In Set-up,(2) Sharp BP71C36
 11/11/2026,DeSoto Parish Library - Stonewall,Ready for Install,Sharp BP51C45
 11/10/2026,Union Veterinary Clinic - Farmerville,Install Scheduled,HP X50352dn
@@ -459,7 +459,7 @@ backorder,Evangel Christian Academy - Shrevport,On Order,"(4)BP70M75, (3)BP71C65
 11/11/2026,Mercy Medical - Jennings,Ready for Install,(2) HP X52952dn
 ,Miller Roy Apartments - Monroe,Ready for Install,Sharp BPB550WD
 ,SNAP - LSU Health Peds Ortho - Shreveport,On Order,Sharo BPC353WD
-11/9/2026,Creed & Creed - Monroe,Install Scheduled,HP M404dn - used tag 22518
+11/9/2026,Creed & Creed - Monroe,Install Completed,HP M404dn - used tag 22518
 ,Nexion ITT - Meadowview Health,On Order,"(7)XM3350, (2)M3350, (1)C4342"
 11/13/2026,Orthopedic Center - Monroe,Install Completed,Sharp BP71C45
 11/13/2026,Brown Chrysler Dodge - Minden,Install Completed,HP X50352dn
@@ -467,3 +467,4 @@ backorder,Evangel Christian Academy - Shrevport,On Order,"(4)BP70M75, (3)BP71C65
 BACKORDER,Dunn Bapstist Church -  Delhi,On Order,Sharp BPC535WD
 ,Mechanical Systems - West Monroe,On Order,"Sharp BP71C55, BP71M55"
 ,ITT - Good Day Farm - Natchitoches,On Order,Sharp  MXC428f
+11/17/2026,City of Monroe - Monroe,In Set-up,Sharp BPC545WD
