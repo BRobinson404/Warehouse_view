@@ -414,8 +414,8 @@ Date Received,Customer,Machine Status,Installing
 10/14/2026,Parker & Company - Monroe,Install Completed,Sharp BP71M45
 10/12/2026,Mercy Medical - Hodge,Install Completed,HP X52952dn
 10/14/2026,Plant Maintenance Services - Crossett,Install Completed,Sharp BP71C31
-,Briarwood Estates at Ruston,On Order,Sharp BPC535WD
-,Briarwood Estates at Bastrop,On Order,Sharp BPC535WD
+11/17/2026,Briarwood Estates at Ruston,In Set-up,Sharp BPC535WD
+11/17/2026,Briarwood Estates at Bastrop,In Set-up,Sharp BPC535WD
 10/14/2026,Wound Ostomy Care - West Monroe,Install Completed,Sharp BPB550WD - DS14 highstand on b/o
 10/14/2026,Richardson Medical/Family Health Clinic- Rayville,Install Completed,HP X52952dn
 10/13/2026,Viserion Grain - Lake Providence & Crowville,Partial Install,(4) BPC545WD stock machines
@@ -447,7 +447,7 @@ Date Received,Customer,Machine Status,Installing
 11/13/2026,SNAP - CPSB Chief Academic Affairs - Shreveport,In Set-up,Sharp BP51C31
 11/13/2026,SNAP - Rusheon Middle School - Bossier,In Set-up,(2) Sharp BP71M55
 11/13/2026,SNAP - Waller Elementary - Bossier,In Set-up,Sharp BP71M65
-,Donald Farms - West Monroe,On Order,Sharp BPC545WD
+11/17/2026,Donald Farms - West Monroe,In Set-up,Sharp BPC545WD
 11/5/2026,Woodcrest Apartments - Haughton,Install Scheduled,Sharp MXB467F - USED TAG SH22840
 11/13/2026,SNAP - LA State Police - Bossier,In Set-up,(2) Sharp BP71C36
 11/11/2026,DeSoto Parish Library - Stonewall,Ready for Install,Sharp BP51C45
@@ -461,7 +461,7 @@ backorder,Evangel Christian Academy - Shrevport,On Order,"(4)BP70M75, (3)BP71C65
 ,SNAP - LSU Health Peds Ortho - Shreveport,On Order,Sharo BPC353WD
 11/9/2026,Creed & Creed - Monroe,Install Scheduled,HP M404dn - used tag 22518
 ,Nexion ITT - Meadowview Health,On Order,"(7)XM3350, (2)M3350, (1)C4342"
-11/13/2026,Orthopedic Center - Monroe,Install Scheduled,Sharp BP71C45
+11/13/2026,Orthopedic Center - Monroe,Install Completed,Sharp BP71C45
 11/13/2026,Brown Chrysler Dodge - Minden,Install Completed,HP X50352dn
 11/12/2026,RENTAL - Burkes Mechanical - Hodge,Ready for Install,Sharp BP70M45 - Used tag SH23357
 BACKORDER,Dunn Bapstist Church -  Delhi,On Order,Sharp BPC535WD
